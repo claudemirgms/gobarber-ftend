@@ -31,10 +31,12 @@ export const NotificationList = styled.div`
   position: absolute;
   width: 260px;
   left: calc(50% - 130px);
-  top: calc(100% + 30);
+  top: calc(100% + 30px);
   background: rgba(0, 0, 0, 0.6);
   border-radius: 4px;
   padding: 15px 5px;
+
+  display: ${props => (props.visible ? 'block' : 'none')};
 
   &::before {
     content: '';
@@ -43,9 +45,9 @@ export const NotificationList = styled.div`
     top: -20px;
     width: 0;
     height: 0;
-    border-left: 20px solid tranparent;
-    border-right: 20px solid tranparent;
-    border-botton: 20px solid rgba(0, 0, 0, 0.6);
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid rgba(0, 0, 0, 0.6);
   }
 `;
 
@@ -82,13 +84,13 @@ export const Notification = styled.div`
     margin: 0 5px;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
   }
+
   ${props =>
     props.unread &&
     css`
       &::after {
         content: '';
         display: inline-block;
-        margin-left: 2px;
         width: 8px;
         height: 8px;
         background: #ff892e;
